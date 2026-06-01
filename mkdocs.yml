@@ -28,6 +28,11 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
 
+extra:
+  generator: false
+
+copyright: ytwang1295@gmail.com
+
 nav:
   - 首页: index.md
   - 人生周报:
