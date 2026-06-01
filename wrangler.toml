@@ -1,3 +1,0 @@
-name = "mindflowio-notes"
-pages_build_command = "mkdocs build"
-pages_build_output_dir = "site"
