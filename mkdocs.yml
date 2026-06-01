@@ -1,0 +1,32 @@
+site_name: MindFlowIO
+site_url: https://mindflowio.com
+site_description: 个人知识库与笔记
+site_author: wangyatai
+
+theme:
+  name: material
+  language: zh
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: 切换至暗色模式
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: 切换至亮色模式
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - search.suggest
+    - search.highlight
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+nav:
+  - 首页: index.md
