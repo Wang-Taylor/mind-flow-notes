@@ -1,7 +1,9 @@
 site_name: MindFlowIO
 site_url: https://mindflowio.com
 site_description: 个人知识库
-site_author: wangyatai
+site_author: 翊川
+
+theme:
 
 theme:
   name: material
@@ -41,7 +43,7 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/Wang-Taylor
 
-copyright: Copyright &copy; 2026 wangyatai
+copyright: Copyright &copy; 2026 翊川
 
 markdown_extensions:
   - pymdownx.highlight:
