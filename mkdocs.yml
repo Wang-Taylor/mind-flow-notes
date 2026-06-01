@@ -36,6 +36,8 @@ theme:
 extra:
   generator: false
   social:
+    - icon: fontawesome/solid/envelope
+      link: mailto:ytwang1295@gmail.com
     - icon: fontawesome/brands/github
       link: https://github.com/Wang-Taylor
 
