@@ -1,48 +1,10 @@
 /* ============================================================
-   MindFlowIO 自定义深色主题
+   MindFlowIO 自定义主题
    灵感来源：面基播客资料库 + Big Picture 仪表盘
-   配色方案：深色底色 + 暖金色强调 + 面板化卡片设计
    ============================================================ */
 
-/* ===== 1. CSS 变量定义 ===== */
+/* ===== 1. 共享变量（不随主题切换变化） ===== */
 :root {
-  /* 主背景色系 - 深色海军风 */
-  --bg-primary: #0d1117;
-  --bg-secondary: #161b22;
-  --bg-tertiary: #1c2333;
-  --bg-card: #161b22;
-  --bg-card-hover: #1c2536;
-  --bg-code: #151b22;
-  --bg-nav: #0d1117;
-
-  /* 边框 */
-  --border-color: #30363d;
-  --border-hover: #d4a853;
-  --border-subtle: #21262d;
-
-  /* 文字颜色 */
-  --text-primary: #e6edf3;
-  --text-secondary: #8b949e;
-  --text-muted: #6e7681;
-  --text-link: #d4a853;
-  --text-link-hover: #e8c56b;
-
-  /* 强调色 - 暖金系 */
-  --accent-gold: #d4a853;
-  --accent-gold-light: #e8c56b;
-  --accent-gold-dark: #b88940;
-  --accent-gold-glow: rgba(212, 168, 83, 0.15);
-
-  /* 辅助色 - 冷蓝 */
-  --accent-blue: #58a6ff;
-  --accent-blue-dim: #1f6feb;
-
-  /* 功能色 */
-  --color-success: #3fb950;
-  --color-danger: #f85149;
-  --color-warning: #d29922;
-  --color-info: #58a6ff;
-
   /* 间距系统 */
   --space-xs: 4px;
   --space-sm: 8px;
@@ -57,18 +19,126 @@
   --radius-lg: 12px;
   --radius-xl: 16px;
 
-  /* 阴影 */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
-  --shadow-gold: 0 0 20px rgba(212, 168, 83, 0.1);
-
   /* 字体 */
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", "Cascadia Code", Consolas, "Source Code Pro", monospace;
 }
 
-/* ===== 2. 全局样式 ===== */
+/* ===== 2. 深色方案 (slate) ===== */
+[data-md-color-scheme="slate"] {
+  /* Material 必须变量 — 让 primary: custom 正常工作 */
+  --md-primary-fg-color: #d4a853;
+  --md-primary-fg-color--dark: #b88940;
+  --md-primary-fg-color--light: #e8c56b;
+  --md-primary-bg-color: #0d1117;
+  --md-primary-bg-color--light: #161b22;
+  --md-accent-fg-color: #e8c56b;
+  --md-accent-fg-color--transparent: rgba(212, 168, 83, 0.15);
+  --md-accent-bg-color: #0d1117;
+  --md-accent-bg-color--light: #161b22;
+
+  /* 默认文字色覆盖 — slate 主题默认偏灰，我们加深 */
+  --md-default-bg-color: #0d1117;
+  --md-default-fg-color: #e6edf3;
+  --md-default-fg-color--light: #8b949e;
+  --md-default-fg-color--lighter: #6e7681;
+  --md-default-fg-color--lightest: #484f58;
+  --md-default-bg-color--light: #161b22;
+  --md-default-bg-color--lighter: #1c2333;
+  --md-default-bg-color--lightest: #21262d;
+
+  /* 代码块 */
+  --md-code-bg-color: #151b22;
+  --md-code-fg-color: #e6edf3;
+  --md-code-hl-color: rgba(212, 168, 83, 0.15);
+
+  /* 阴影 */
+  --md-shadow-z1: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --md-shadow-z2: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --md-shadow-z3: 0 8px 24px rgba(0, 0, 0, 0.5);
+
+  /* 自定义变量 */
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-tertiary: #1c2333;
+  --bg-card: #161b22;
+  --bg-card-hover: #1c2536;
+  --bg-nav: #0d1117;
+  --border-color: #30363d;
+  --border-hover: #d4a853;
+  --border-subtle: #21262d;
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --text-muted: #6e7681;
+  --text-link: #d4a853;
+  --text-link-hover: #e8c56b;
+  --accent-gold: #d4a853;
+  --accent-gold-light: #e8c56b;
+  --accent-gold-dark: #b88940;
+  --accent-gold-glow: rgba(212, 168, 83, 0.15);
+  --accent-blue: #58a6ff;
+  --accent-blue-dim: #1f6feb;
+  --color-success: #3fb950;
+  --color-danger: #f85149;
+  --color-warning: #d29922;
+  --color-info: #58a6ff;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-gold: 0 0 20px rgba(212, 168, 83, 0.1);
+}
+
+/* ===== 3. 亮色方案 (default) ===== */
+[data-md-color-scheme="default"] {
+  /* Material 必须变量 */
+  --md-primary-fg-color: #b88940;
+  --md-primary-fg-color--dark: #8a6a30;
+  --md-primary-fg-color--light: #d4a853;
+  --md-primary-bg-color: #ffffff;
+  --md-primary-bg-color--light: #f8f6f0;
+  --md-accent-fg-color: #b88940;
+  --md-accent-fg-color--transparent: rgba(184, 137, 64, 0.12);
+  --md-accent-bg-color: #ffffff;
+  --md-accent-bg-color--light: #f8f6f0;
+
+  /* 默认文字色 — Material 默认即可，微调 */
+  --md-default-bg-color: #fafaf8;
+  --md-default-fg-color: #1a1a1a;
+  --md-default-fg-color--light: #5a5a5a;
+  --md-default-fg-color--lighter: #8a8a8a;
+
+  /* 自定义变量 */
+  --bg-primary: #fafaf8;
+  --bg-secondary: #f5f3ee;
+  --bg-tertiary: #ede9e0;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8f6f0;
+  --bg-nav: #ffffff;
+  --border-color: #e0ddd5;
+  --border-hover: #b88940;
+  --border-subtle: #e8e5dd;
+  --text-primary: #1a1a1a;
+  --text-secondary: #5a5a5a;
+  --text-muted: #8a8a8a;
+  --text-link: #b88940;
+  --text-link-hover: #d4a853;
+  --accent-gold: #b88940;
+  --accent-gold-light: #d4a853;
+  --accent-gold-dark: #8a6a30;
+  --accent-gold-glow: rgba(184, 137, 64, 0.1);
+  --accent-blue: #2563eb;
+  --accent-blue-dim: #1d4ed8;
+  --color-success: #16a34a;
+  --color-danger: #dc2626;
+  --color-warning: #ca8a04;
+  --color-info: #2563eb;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-gold: 0 0 20px rgba(184, 137, 64, 0.08);
+}
+
+/* ===== 4. 全局样式 ===== */
 *,
 *::before,
 *::after {
@@ -82,13 +152,13 @@ html {
 body {
   font-family: var(--font-sans);
   background-color: var(--bg-primary);
-  color: var(--text-primary);
+  color: var(--md-default-fg-color);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ===== 3. 滚动条美化 ===== */
+/* ===== 5. 滚动条美化 ===== */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -104,24 +174,7 @@ body {
   background: var(--text-muted);
 }
 
-/* ===== 4. Material 主题覆盖 ===== */
-
-/* 4.1 主容器 */
-.md-main {
-  background-color: var(--bg-primary);
-}
-
-.md-main__inner {
-  margin-top: 0;
-  padding-top: var(--space-lg);
-}
-
-/* md-grid 容器 */
-.md-grid {
-  max-width: 1220px;
-}
-
-/* 4.2 顶部导航栏 */
+/* ===== 6. 顶部导航栏 ===== */
 .md-header {
   background-color: var(--bg-nav);
   border-bottom: 1px solid var(--border-subtle);
@@ -141,19 +194,18 @@ body {
 .md-header__title {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--md-default-fg-color);
 }
 
 .md-header__topic {
   color: var(--accent-gold);
 }
 
-/* 4.3 搜索 */
+/* ===== 7. 搜索 ===== */
 .md-search__input {
   background-color: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  color: var(--text-primary);
   font-size: 0.875rem;
 }
 
@@ -166,7 +218,35 @@ body {
   border-radius: var(--radius-md);
 }
 
-/* 4.4 导航侧边栏 */
+/* Search results panel (深色方案适配) */
+[data-md-color-scheme="slate"] .md-search-result {
+  background-color: var(--bg-secondary);
+}
+[data-md-color-scheme="slate"] .md-search-result__meta {
+  background-color: var(--bg-tertiary);
+}
+[data-md-color-scheme="slate"] .md-search-result__article {
+  border-color: var(--border-color);
+}
+[data-md-color-scheme="slate"] .md-search-result__link:hover {
+  background-color: var(--bg-tertiary);
+}
+
+/* ===== 8. 主容器 ===== */
+.md-main {
+  background-color: var(--bg-primary);
+}
+
+.md-main__inner {
+  margin-top: 0;
+  padding-top: var(--space-lg);
+}
+
+.md-grid {
+  max-width: 1220px;
+}
+
+/* ===== 9. 侧边栏导航 ===== */
 .md-sidebar {
   background-color: var(--bg-primary);
 }
@@ -226,7 +306,7 @@ body {
   height: 60%;
 }
 
-/* 4.5 内容区 */
+/* ===== 10. 内容区 ===== */
 .md-content {
   background-color: var(--bg-primary);
 }
@@ -235,9 +315,9 @@ body {
   padding: var(--space-lg) var(--space-2xl);
 }
 
-/* 4.6 标题样式 */
+/* 标题 */
 .md-content h1 {
-  color: var(--text-primary);
+  color: var(--md-default-fg-color);
   font-size: 2rem;
   font-weight: 700;
   margin-top: 0;
@@ -268,7 +348,7 @@ body {
 }
 
 .md-content h3 {
-  color: var(--text-primary);
+  color: var(--md-default-fg-color);
   font-size: 1.2rem;
   font-weight: 600;
   margin-top: var(--space-xl);
@@ -281,9 +361,9 @@ body {
   font-weight: 600;
 }
 
-/* 4.7 段落和文本 */
+/* 段落 */
 .md-content p {
-  color: var(--text-primary);
+  color: var(--md-default-fg-color);
   line-height: 1.8;
   margin-bottom: var(--space-md);
 }
@@ -300,7 +380,7 @@ body {
   border-bottom-color: var(--accent-gold);
 }
 
-/* 4.8 代码块 */
+/* 代码 */
 .md-content code:not(.highlight code) {
   background-color: var(--bg-tertiary);
   color: var(--accent-gold-light);
@@ -312,14 +392,14 @@ body {
 }
 
 .highlight {
-  background-color: var(--bg-code);
+  background-color: var(--md-code-bg-color);
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-color);
   overflow: hidden;
 }
 
 .highlight pre {
-  background-color: var(--bg-code);
+  background-color: var(--md-code-bg-color);
   padding: var(--space-lg);
 }
 
@@ -329,16 +409,7 @@ body {
   line-height: 1.6;
 }
 
-/* 代码高亮行号 */
-.linenos {
-  color: var(--text-muted);
-  border-right: 1px solid var(--border-color);
-  padding-right: var(--space-md);
-  margin-right: var(--space-md);
-  user-select: none;
-}
-
-/* 4.9 引用块 */
+/* 引用块 */
 .md-content blockquote {
   background-color: var(--bg-tertiary);
   border-left: 4px solid var(--accent-gold);
@@ -353,7 +424,7 @@ body {
   margin-bottom: 0;
 }
 
-/* 4.10 表格 */
+/* 表格 */
 .md-content table {
   border-collapse: separate;
   border-spacing: 0;
@@ -377,7 +448,7 @@ body {
 .md-content td {
   padding: var(--space-sm) var(--space-md);
   border-bottom: 1px solid var(--border-subtle);
-  color: var(--text-primary);
+  color: var(--md-default-fg-color);
 }
 
 .md-content tr:last-child td {
@@ -388,7 +459,7 @@ body {
   background-color: var(--bg-tertiary);
 }
 
-/* 4.11 分割线 */
+/* 分割线 */
 .md-content hr {
   border: none;
   height: 1px;
@@ -396,10 +467,10 @@ body {
   margin: var(--space-2xl) 0;
 }
 
-/* 4.12 列表 */
+/* 列表 */
 .md-content ul,
 .md-content ol {
-  color: var(--text-primary);
+  color: var(--md-default-fg-color);
   padding-left: var(--space-xl);
 }
 
@@ -411,9 +482,7 @@ body {
   color: var(--accent-gold);
 }
 
-/* ===== 5. 面板卡片组件 ===== */
-
-/* 5.1 通用面板容器 */
+/* ===== 11. 面板卡片组件 ===== */
 .panel {
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -447,7 +516,6 @@ body {
   opacity: 1;
 }
 
-/* 面板标题 */
 .panel__title {
   color: var(--accent-gold);
   font-size: 1.1rem;
@@ -478,10 +546,10 @@ body {
   font-weight: 600;
   padding: 2px 10px;
   border-radius: 100px;
-  border: 1px solid rgba(212, 168, 83, 0.2);
+  border: 1px solid var(--border-color);
 }
 
-/* 5.2 统计数字卡片 */
+/* ===== 12. 统计数字卡片 ===== */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -541,7 +609,7 @@ body {
   margin-bottom: var(--space-sm);
 }
 
-/* 5.3 分类网格 */
+/* ===== 13. 分类网格 ===== */
 .category-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -617,7 +685,7 @@ body {
   gap: 4px;
 }
 
-/* ===== 6. 特殊首页 Hero 区域 ===== */
+/* ===== 14. Hero 区域 ===== */
 .hero {
   padding: var(--space-2xl) 0;
   text-align: center;
@@ -632,14 +700,14 @@ body {
   transform: translateX(-50%);
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(212, 168, 83, 0.03) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--accent-gold-glow) 0%, transparent 70%);
   pointer-events: none;
 }
 
 .hero__title {
   font-size: 2.8rem;
   font-weight: 800;
-  color: var(--text-primary);
+  color: var(--md-default-fg-color);
   margin-bottom: var(--space-sm);
   letter-spacing: -0.02em;
 }
@@ -664,21 +732,21 @@ body {
   align-items: center;
   gap: var(--space-sm);
   background-color: var(--accent-gold-glow);
-  border: 1px solid rgba(212, 168, 83, 0.2);
+  border: 1px solid var(--border-color);
   border-radius: 100px;
   padding: var(--space-xs) var(--space-lg);
   font-size: 0.85rem;
   color: var(--accent-gold);
 }
 
-/* ===== 7. 页脚 ===== */
+/* ===== 15. 页脚 ===== */
 .md-footer {
   background-color: var(--bg-nav);
   border-top: 1px solid var(--border-subtle);
 }
 
 .md-footer-meta {
-  background-color: #080b12;
+  background-color: var(--bg-secondary);
 }
 
 .md-footer-copyright {
@@ -694,11 +762,11 @@ body {
   color: var(--text-muted);
 }
 
-/* ===== 8. 标签和徽章 ===== */
+/* ===== 16. 标签和徽章 ===== */
 .md-tag {
   background-color: var(--bg-tertiary) !important;
   color: var(--accent-gold) !important;
-  border: 1px solid rgba(212, 168, 83, 0.2);
+  border: 1px solid var(--border-color);
   border-radius: 100px !important;
   padding: 2px 10px !important;
   font-size: 0.75rem !important;
@@ -710,7 +778,7 @@ body {
   border-color: var(--accent-gold);
 }
 
-/* ===== 9. 按钮样式 ===== */
+/* ===== 17. 按钮 ===== */
 .md-button {
   border-radius: var(--radius-md);
   font-weight: 500;
@@ -719,7 +787,6 @@ body {
 
 .md-button--primary {
   background-color: var(--accent-gold);
-  color: #0d1117;
   border: none;
 }
 
@@ -729,7 +796,7 @@ body {
   transform: translateY(-1px);
 }
 
-/* ===== 10. 提示框/告警 ===== */
+/* ===== 18. Admonition 提示框 ===== */
 .md-typeset .admonition,
 .md-typeset details {
   background-color: var(--bg-card);
@@ -747,28 +814,23 @@ body {
 
 .md-typeset .note > .admonition-title,
 .md-typeset .note > summary {
-  background-color: rgba(88, 166, 255, 0.1);
+  background-color: rgba(37, 99, 235, 0.08);
   color: var(--accent-blue);
 }
 
 .md-typeset .warning > .admonition-title,
 .md-typeset .warning > summary {
-  background-color: rgba(210, 153, 34, 0.1);
+  background-color: rgba(202, 138, 4, 0.08);
   color: var(--color-warning);
 }
 
 .md-typeset .danger > .admonition-title,
 .md-typeset .danger > summary {
-  background-color: rgba(248, 81, 73, 0.1);
+  background-color: rgba(220, 38, 38, 0.08);
   color: var(--color-danger);
 }
 
-/* ===== 11. 任务列表 ===== */
-.task-list-item [type="checkbox"]:checked + .task-list-indicator::before {
-  background-color: var(--accent-gold);
-}
-
-/* ===== 12. 图片样式 ===== */
+/* ===== 19. 图片 ===== */
 .md-content img {
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-color);
@@ -780,7 +842,7 @@ body {
   box-shadow: var(--shadow-gold);
 }
 
-/* ===== 13. 内容加载/过渡动画 ===== */
+/* ===== 20. 动画 ===== */
 .md-content__inner {
   animation: fadeInUp 0.5s ease;
 }
@@ -796,7 +858,7 @@ body {
   }
 }
 
-/* ===== 14. Big Picture 风格装饰线 ===== */
+/* ===== 21. 装饰分割线 ===== */
 .gold-divider {
   border: none;
   height: 1px;
@@ -817,7 +879,7 @@ body {
   padding: 0 var(--space-md);
 }
 
-/* ===== 15. 响应式适配 ===== */
+/* ===== 22. 响应式 ===== */
 @media screen and (max-width: 768px) {
   .md-content__inner {
     padding: var(--space-md);
@@ -867,7 +929,7 @@ body {
   }
 }
 
-/* ===== 16. 打印优化 ===== */
+/* ===== 23. 打印优化 ===== */
 @media print {
   .md-sidebar,
   .md-header,
@@ -883,4 +945,17 @@ body {
   .md-content a {
     color: #1a1a1a;
   }
+}
+
+/* ===== 24. Tab 组件深色适配 ===== */
+[data-md-color-scheme="slate"] .tabbed-set > label {
+  color: var(--text-secondary);
+  border-bottom-color: var(--border-color);
+}
+[data-md-color-scheme="slate"] .tabbed-set > input:checked + label {
+  color: var(--accent-gold);
+  border-bottom-color: var(--accent-gold);
+}
+[data-md-color-scheme="slate"] .tabbed-content {
+  border-color: var(--border-color);
 }
