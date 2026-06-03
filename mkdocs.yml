@@ -22,24 +22,18 @@ theme:
         icon: material/weather-sunny
         name: 切换至深色模式
   features:
-    # 导航功能
+    # 导航功能 - 只保留最基本的，不改变侧边栏行为
     - navigation.instant
     - navigation.tracking
     - navigation.top
-    - navigation.tabs
-    - navigation.indexes
-    - navigation.sections
     - toc.follow
     # 搜索功能
     - search.suggest
     - search.highlight
-    - search.share
     # 代码功能
     - content.code.copy
-    - content.code.annotate
     # 其他
     - header.autohide
-    - announce.dismiss
 
 # ===== 自定义 CSS =====
 extra_css:
