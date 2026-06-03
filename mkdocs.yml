@@ -3,36 +3,86 @@ site_url: https://mindflowio.com
 site_description: 个人知识库与笔记
 site_author: wangyatai
 
+# ===== 主题配置 =====
 theme:
   name: material
   language: zh
+  # 默认使用深色方案 (slate)
   palette:
-    - scheme: default
-      toggle:
-        icon: material/brightness-7
-        name: 切换至暗色模式
     - scheme: slate
+      primary: custom
+      accent: custom
       toggle:
-        icon: material/brightness-4
+        icon: material/weather-night
         name: 切换至亮色模式
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: 切换至深色模式
   features:
+    # 导航功能
     - navigation.instant
     - navigation.tracking
     - navigation.top
+    - navigation.tabs
+    - navigation.indexes
+    - navigation.sections
+    - toc.follow
+    # 搜索功能
     - search.suggest
     - search.highlight
+    - search.share
+    # 代码功能
+    - content.code.copy
+    - content.code.annotate
+    # 其他
+    - header.autohide
+    - announce.dismiss
 
+# ===== 自定义 CSS =====
+extra_css:
+  - stylesheets/custom.css
+
+# ===== Markdown 扩展 =====
 markdown_extensions:
-  - pymdownx.highlight
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
   - pymdownx.superfences
   - pymdownx.tasklist:
       custom_checkbox: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.details
+  - pymdownx.critic
+  - admonition
+  - footnotes
+  - def_list
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
 
+# ===== 版权 =====
 extra:
   generator: false
+  social:
+    - icon: material/email
+      link: mailto:ytwang1295@gmail.com
+      name: 发送邮件
 
-copyright: ytwang1295@gmail.com
+copyright: Copyright &copy; 2026 wangyatai
 
+# ===== 导航 =====
 nav:
   - 首页: index.md
   - 人生周报:
